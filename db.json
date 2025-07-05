@@ -1,0 +1,180 @@
+{
+  "courses": [
+    {
+      "name": "Cloud Computing",
+      "fee": "24500",
+      "img": "https://miro.medium.com/max/469/1*24oTbi-r9SXkkJjtV2_B2A.png",
+      "details": "Cloud computing is the on-demand availability of computer system resources, especially data storage and computing power, without direct active management by the user"
+    },
+    {
+      "name": "Devops",
+      "fee": "21200",
+      "img": "https://dpsvdv74uwwos.cloudfront.net/statics/img/product-pages/devops.png",
+      "details": "DevOps is a set of practices that combines software development and information-technology operations which aims to shorten the systems development life cycle operations which aims to shorten the systems development life cycle."
+    },
+    {
+      "name": "FullStack",
+      "fee": "16000",
+      "img": "https://andrukonis.com/wp-content/uploads/2017/04/HTML-CSS-JS-AngularJS-Agile-Revision.png",
+      "details": "A full stack developer is an engineer who can handle all the work of databases, servers, systems engineering, and clients. Depending on the project, what customers need may be a mobile stack, a Web stack, or a native application stack"
+    },
+    {
+      "name": "Machine Learning",
+      "fee": "18000",
+      "img": "https://i.ytimg.com/vi/Pj0neYUp9Tc/maxresdefault.jpg",
+      "details": "Machine learning is an application of artificial intelligence (AI) that provides systems the ability to automatically learn and improve from experience without being explicitly programmed."
+    },
+    {
+      "name": "Big Data",
+      "fee": "24800",
+      "img": "https://www.inventateq.com/assets/python/big_data.jpg",
+      "details": "Big data is a field that treats ways to analyze, systematically extract information from, or otherwise deal with data sets that are too large or complex to be dealt with, by traditional."
+    },
+    {
+      "name": "BI and Visualization",
+      "fee": "13000",
+      "img": "https://bigdataanalyticsnews.com/wp-content/uploads/2017/03/power-bi.jpg",
+      "details": "Data visualization is a general term that describes any effort to help people understand the significance of data by placing it in a visual context. Patterns, trends and correlations."
+    },
+    {
+      "name": "Data Science",
+      "fee": "31000",
+      "img": "http://sudeep.co/images/post_images/2018-02-09-Understanding-the-Data-Science-Lifecycle/chart.png",
+      "details": "Data science is a multi-disciplinary field that uses scientific methods, processes, algorithms and systems to extract knowledge and insights. "
+    }
+  ],
+  "enquiry": [
+    {
+      "id": "2dae",
+      "name": "Dasappan",
+      "phoneNumber": "7412589630",
+      "email": "jilu_das18@yahoo.co.in",
+      "enquiryMessage": "what is C",
+      "courseName": "Learn and Master C Programming For Absolute Beginners!",
+      "errors": {
+        "enquiryMessage": ""
+      }
+    },
+    {
+      "id": "181f",
+      "name": "dasappan",
+      "phoneNumber": "46561237892",
+      "email": "das@gmail.com",
+      "enquiryMessage": "what is C in Depth course is all about? How much is the cost of it?",
+      "courseName": "C in Depth: The Complete C Programming Guide for Beginners",
+      "errors": {
+        "enquiryMessage": ""
+      }
+    },
+    {
+      "id": "4b62",
+      "name": "Ebin",
+      "phoneNumber": "3216547892",
+      "email": "ebin.joseph@gmail.com",
+      "enquiryMessage": "is this course good for beginners?",
+      "courseName": "C Programming For Beginners",
+      "errors": {
+        "enquiryMessage": ""
+      }
+    },
+    {
+      "id": "8607",
+      "name": "Ebin",
+      "phoneNumber": "3216547892",
+      "email": "ebin.joseph@gmail.com",
+      "enquiryMessage": "is this course good for beginners?",
+      "courseName": "C Programming For Beginners",
+      "errors": {
+        "enquiryMessage": ""
+      }
+    },
+    {
+      "id": "b31d",
+      "name": "Jilu",
+      "phoneNumber": "8529637410",
+      "email": "ebin.joseph@gmail.com",
+      "enquiryMessage": "master c programming",
+      "courseName": "Learn and Master C Programming For Absolute Beginners!",
+      "errors": {
+        "enquiryMessage": ""
+      }
+    },
+    {
+      "id": "1288",
+      "name": "op",
+      "phoneNumber": "4569874123",
+      "email": "q@q.com",
+      "enquiryMessage": "arfvr  ggggggb",
+      "courseName": "C Programming For Beginners",
+      "errors": {
+        "enquiryMessage": ""
+      }
+    },
+    {
+      "id": "a0a5",
+      "name": "er",
+      "phoneNumber": "",
+      "email": "q@q.com",
+      "enquiryMessage": "swe",
+      "courseName": "C Programming For Beginners",
+      "errors": {
+        "enquiryMessage": ""
+      }
+    },
+    {
+      "id": "eb72",
+      "name": "gh",
+      "phoneNumber": "8521479630",
+      "email": "",
+      "enquiryMessage": "lop",
+      "courseName": "C Programming - Complete Tutorial For Beginners",
+      "errors": {
+        "enquiryMessage": ""
+      }
+    },
+    {
+      "id": "5cb4",
+      "name": "jk",
+      "phoneNumber": "4569874123",
+      "email": "cdksl@vfmdklf.com",
+      "enquiryMessage": "opm5\nmmk84",
+      "courseName": "Learn and Master C Programming For Absolute Beginners!",
+      "errors": {
+        "enquiryMessage": ""
+      }
+    },
+    {
+      "id": "bb4e",
+      "name": "pl",
+      "phoneNumber": "",
+      "email": "pl@pl.com",
+      "enquiryMessage": "pl ty f\ndsq",
+      "courseName": "C Programming For Beginners",
+      "errors": {
+        "enquiryMessage": ""
+      }
+    },
+    {
+      "id": "fb38",
+      "name": "JILU ELIZEBETH DASAN",
+      "phoneNumber": "09731902104",
+      "email": "praneet@gmail.com",
+      "enquiryMessage": "please send the curriculam",
+      "courseName": "C in Depth: The Complete C Programming Guide for Beginners",
+      "errors": {
+        "enquiryMessage": ""
+      }
+    },
+    {
+      "id": "0ccf",
+      "name": "hi",
+      "phoneNumber": "4545641213",
+      "email": "q@q.com",
+      "enquiryMessage": "nk",
+      "courseName": "C in Depth: The Complete C Programming Guide for Beginners",
+      "errors": {
+        "enquiryMessage": ""
+      }
+    }
+  ]
+}
