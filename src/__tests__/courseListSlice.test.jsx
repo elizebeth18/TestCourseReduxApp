@@ -1,6 +1,51 @@
 import courseListReducer,{fetchCourseList} from "../store/courseListSlice";
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { configureStore } from '@reduxjs/toolkit';
+import axios from 'axios';
+
+// Mock axios
+vi.mock('axios');
+
+describe('fetchCourseList thunk', () => {
+  let store;
+
+  beforeEach(() => {
+    store = configureStore({
+      reducer: {
+        course: courseListReducer,
+      },
+    });
+  });
+
+  it('handles success response correctly', async () => {
+    axios.get.mockResolvedValueOnce({ data: {
+        "name": "Cloud Computing",
+        "fee": "24500",
+        "img": "A.png",
+        "details": "Cloud computing"
+      } });
+
+    await store.dispatch(fetchCourseList());
+
+    const state = store.getState().course;
+    expect(state.isLoading).toBe(false);
+    expect(state.listOfCourses).toEqual({
+        "name": "Cloud Computing",
+        "fee": "24500",
+        "img": "A.png",
+        "details": "Cloud computing"});
+  });
+
+  it("handles error response", async () => {
+    axios.get.mockRejectedValueOnce(new Error('Network Error'));
+
+    await store.dispatch(fetchCourseList());
+
+    const state = store.getState().course;
+    expect(state.error).toBe("Network Error")
+  });
+
+});
 
 
 describe('courseList extraReducers', () => {
