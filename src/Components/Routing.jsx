@@ -1,6 +1,8 @@
-import { BrowserRouter, Routes, Route,NavLink } from "react-router-dom";
+import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 import MainOutlet from "./MainOutlet";
 import Home from "./Home/Home";
+import EnquiryForm from "./EnquiryForm/EnquiryForm";
+import ViewEnquires from "./ViewEnquires/ViewEnquires";
 
 const NotFound = () => <h2>Page Not Found</h2>
 
@@ -34,8 +36,10 @@ const Routing = () => {
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<MainOutlet />}>
-                        <Route index element={<Home />}/>
-                        <Route path="*" element={<NotFound/>}/>
+                        <Route index element={<Home />} />
+                        <Route path="enquiryForm" element={<EnquiryForm />} />
+                        <Route path="viewEnquires" element={<ViewEnquires />} />
+                        <Route path="*" element={<NotFound />} />
                     </Route>
                 </Routes>
             </BrowserRouter>

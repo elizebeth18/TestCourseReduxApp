@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { postEnquiryForm } from '../../store/enquiryFormSlice.js';
+import { postEnquiryForm } from '../../store/enquiryFormSlice';
 
 const EnquiryForm = () => {
 
@@ -129,12 +129,12 @@ const EnquiryForm = () => {
 
     return(
         <div className="container">
-                <div className="panel panel-primary">
-                    <div className="panel-heading">
+                <div className="card">
+                    <div className="card-header text-center">
                         <h3>Enquiry Form for Course - {searchParams.get('courseName')}</h3>
                     </div>
-                    <div className="panel-body">
-                        <div className="row">
+                    <div className="card-body">
+                        <div className="">
                             <div className="form-group">
                                 <form className='col-md-10'>
                                     <div className="form-group">
