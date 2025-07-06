@@ -31,7 +31,7 @@ const DisplayEnquiry = (props) => {
                         <th className='col-md-3'>Enquiry</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody data-testid="table-body">
                     {displayEnquiries(props.listOfEnquiry)}
                 </tbody>
             </table>
