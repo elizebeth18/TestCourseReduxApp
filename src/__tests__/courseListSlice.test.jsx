@@ -36,7 +36,7 @@ describe('fetchCourseList thunk', () => {
         "details": "Cloud computing"});
   });
 
-  it("handles error response", async () => {
+  it("handles error response correctly", async () => {
     axios.get.mockRejectedValueOnce(new Error('Network Error'));
 
     await store.dispatch(fetchCourseList());

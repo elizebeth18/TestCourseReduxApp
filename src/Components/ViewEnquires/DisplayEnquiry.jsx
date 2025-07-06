@@ -23,11 +23,13 @@ const DisplayEnquiry = (props) => {
         <div>
             <table className='table table-condensed col-md-12'>
                 <thead>
-                    <th className='col-md-2'>Name</th>
-                    <th className='col-md-2'>Email</th>
-                    <th className='col-md-2'>Phone Number</th>
-                    <th className='col-md-3'>Course Name</th>
-                    <th className='col-md-3'>Enquiry</th>
+                    <tr>
+                        <th className='col-md-2'>Name</th>
+                        <th className='col-md-2'>Email</th>
+                        <th className='col-md-2'>Phone Number</th>
+                        <th className='col-md-3'>Course Name</th>
+                        <th className='col-md-3'>Enquiry</th>
+                    </tr>
                 </thead>
                 <tbody>
                     {displayEnquiries(props.listOfEnquiry)}

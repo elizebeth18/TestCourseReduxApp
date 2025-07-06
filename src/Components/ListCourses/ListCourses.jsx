@@ -22,7 +22,7 @@ const ListCourses = () => {
     const displayCourses = (cData) => {
         if(cData){
             return cData.map((item) => {
-                return (<div className='col-md-5 courseDiv'  key={Math.random(1)}>
+                return (<div className='col-md-4 courseDiv' data-testid="item" key={Math.random(1)}>
                     <div className='col-md-12'>
                         <img src={item.img} alt={item.name} style={{width: '100%'}}/>
                     </div>
