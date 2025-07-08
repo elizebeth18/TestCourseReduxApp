@@ -1,37 +1,42 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from 'axios';
+import axios from "axios";
 
 const initialState = {
-    isSuccess: false
+    isEnquirySuccess: false
 }
 
-export const postEnquiryForm = createAsyncThunk('enquiry/post', async (data) => {
-    const response = await axios.post("http://localhost:9112/enquiry", JSON.stringify(data), {
-        headers: {
-            'accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-    });
+export const submitEnquiry = createAsyncThunk('enquiryForm/submitEnquiry', async (data) => {
+    try {
+        const response = await axios.post("http://localhost:9112/enquiry", JSON.stringify(data), {
+            headers: {
+                'accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        });
 
-    return response.data;
-})
-
-const enquirySlice = createSlice({
-    name: 'enquiryForm',
-    initialState,
-    reducers:{},
-    extraReducers: (builder) => {
-        builder
-            .addCase(postEnquiryForm.pending, state => {
-                state.isSuccess = false;
-            })
-            .addCase(postEnquiryForm.fulfilled, (state, action) => {
-                state.isSuccess = true;
-            })
-            .addCase(postEnquiryForm.rejected, (state, action) => {
-                state.isSuccess = false;
-            })
+        return response.data;
+    } catch (err) {
+        return err;
     }
 });
 
-export default enquirySlice.reducer;
+const enquiryFormSlice = createSlice({
+    name: 'enquiryForm',
+    initialState,
+    reducers: {},
+    extraReducers: (builder) => {
+        builder
+            .addCase(submitEnquiry.pending, (state) => {
+                state.isEnquirySuccess = false;
+            })
+            .addCase(submitEnquiry.fulfilled, (state) => {
+                state.isEnquirySuccess = true;
+            })
+            .addCase(submitEnquiry.rejected, (state) => {
+                state.isEnquirySuccess = false;
+            })
+    },
+});
+
+export const selectEnquiryIsSuccess = state => state.enquiryForm.isEnquirySuccess; 
+export default enquiryFormSlice.reducer;

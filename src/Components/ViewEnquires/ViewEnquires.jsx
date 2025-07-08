@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import DisplayEnquiry from './DisplayEnquiry.jsx';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchEnquiresList } from '../../store/viewEnquiresSlice.jsx';
@@ -6,23 +6,20 @@ import { fetchEnquiresList } from '../../store/viewEnquiresSlice.jsx';
 
 const ViewEnquires = () => {
 
-    const[listOfEnquires,setListOfEnquires] = useState([]);
-    const isSuccess =  useSelector((state) =>state.enquiryForm.isSuccess);
-    const enquiryList =  useSelector((state) =>state.viewEnquires.enquiresList);
+    const [listOfEnquires, setListOfEnquires] = useState([]);
+    const enquiryList = useSelector((state) => state.viewEnquires.enquiresList);
     const dispatch = useDispatch();
 
     console.log(enquiryList)
 
-    useEffect(()=>{
-
-        if(isSuccess)
-            dispatch(fetchEnquiresList());
-    }, [isSuccess]);
+    useEffect(() => {
+        dispatch(fetchEnquiresList());
+    }, [dispatch]);
 
     useEffect(() => {
-        if(enquiryList)
+        if (enquiryList)
             setListOfEnquires(enquiryList)
-    },[enquiryList]);
+    }, [enquiryList]);
 
     return (
         <div className='container'>

@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { postEnquiryForm } from '../../store/enquiryFormSlice';
+import { submitEnquiry } from '../../store/enquiryFormSlice';
 
 const EnquiryForm = () => {
 
@@ -57,7 +57,7 @@ const EnquiryForm = () => {
                 console.error(err);
             }); */
 
-            dispatch(postEnquiryForm(inquiryObj));
+            dispatch(submitEnquiry(inquiryObj));
 
             setInquiryObj({
                 name: "",
