@@ -1,7 +1,7 @@
 import {useState,useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchCourseList,selectCourseList } from '../../store/courseListSlice.jsx';
+import { fetchCourseList,selectCourseList } from '../../store/courseListSlice';
 
 const ListCourses = () => {
 
@@ -17,7 +17,7 @@ const ListCourses = () => {
 
     useEffect(()=>{
         dispatch(fetchCourseList());
-    },[]);
+    },[dispatch]);
 
     const displayCourses = (cData) => {
         if(cData){

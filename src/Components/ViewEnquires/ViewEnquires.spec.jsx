@@ -4,10 +4,6 @@ import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import ViewEnquires from './ViewEnquires';
 import viewEnquiresReducer from '../../store/viewEnquiresSlice';
-import axios from 'axios'
-
-//mock axios
-vi.mock('axios');
 
 // 🧪 Mock DisplayEnquiry component
 vi.mock('./DisplayEnquiry', () => ({
