@@ -1,86 +1,86 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { submitEnquiry } from '../../store/enquiryFormSlice';
 
 const EnquiryForm = () => {
 
-    const navigate = useNavigate();
-    const [searchParams]  = useSearchParams();
-    const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const dispatch = useDispatch();
 
-    const [inquiryObj, setInquiryObj] = useState({
+  const [inquiryObj, setInquiryObj] = useState({
+    name: "",
+    phoneNumber: "",
+    email: "",
+    enquiryMessage: "",
+    courseName: "",
+    errors: {
+      name: "",
+      email: "",
+      phoneNumber: ""
+    }
+  });
+
+  const handleInquiry = (event) => {
+
+    const { name, value } = event.target;
+
+    setInquiryObj(prevState => ({
+      ...prevState,
+      [name]: value,
+      errors: {
+        [name]: validate(name, value)
+      }
+    }));
+  }
+
+  const submitForm = (event) => {
+
+    event.preventDefault();
+
+    inquiryObj.courseName = searchParams.get('courseName');
+
+    if (inquiryObj.name !== "" &&
+      (inquiryObj.email !== "" || inquiryObj.phoneNumber !== "") &&
+      inquiryObj.enquiryMessage !== "") {
+
+      /* axios.post(url,JSON.stringify(inquiryObj),{
+          headers: {
+              'accept': 'application/json',
+              'Content-Type': 'application/json'
+          }
+      }).then((res) => {
+          console.log(res.status);
+
+      }).catch((err) => {
+          console.error(err);
+      }); */
+
+      dispatch(submitEnquiry(inquiryObj));
+
+      setInquiryObj({
         name: "",
         phoneNumber: "",
         email: "",
-        enquiryMessage: "",
         courseName: "",
+        enquiryMessage: "",
         errors: {
           name: "",
           email: "",
           phoneNumber: ""
         }
-    });
+      });
 
-    const handleInquiry = (event) => {
+      navigate("/viewEnquires", { replace: true });
 
-        const { name, value } = event.target;
-
-        setInquiryObj(prevState => ({
-            ...prevState,
-            [name]: value,
-            errors :{
-                [name]: validate(name,value)
-            }
-        }));
+    } else {
+      return;
     }
+  }
 
-    const submitForm = (event) => {
-
-        event.preventDefault();
-
-        inquiryObj.courseName = searchParams.get('courseName');
-
-        if(inquiryObj.name !=="" && 
-            (inquiryObj.email !== "" || inquiryObj.phoneNumber !== "") && 
-            inquiryObj.enquiryMessage!== "") {
-
-            /* axios.post(url,JSON.stringify(inquiryObj),{
-                headers: {
-                    'accept': 'application/json',
-                    'Content-Type': 'application/json'
-                }
-            }).then((res) => {
-                console.log(res.status);
-
-            }).catch((err) => {
-                console.error(err);
-            }); */
-
-            dispatch(submitEnquiry(inquiryObj));
-
-            setInquiryObj({
-                name: "",
-                phoneNumber: "",
-                email: "",
-                courseName: "",
-                enquiryMessage: "",
-                errors: {
-                    name: "",
-                    email: "",
-                    phoneNumber: ""
-                }
-            });
-
-            navigate("/viewEnquires", { replace: true });
-
-        }else {
-            return;
-        }
-    }
-
-    // generic validation in JS
-    const validate = (name, value) => {
+  // generic validation in JS
+  const validate = (name, value) => {
     switch (name) {
       case "name":
         if (!value) {
@@ -91,10 +91,10 @@ const EnquiryForm = () => {
           return "";
         }
       case "phoneNumber":
-        if(value.match(/^(\([0-9]{3}\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}/)){
-            return "Please enter valid Phone Number";
+        if (!value.match(/^\+?[1-9]\d{1,14}$/)) {
+          return "Please enter valid Phone Number";
         }
-       break;
+        break;
       case "email":
         if (!value) {
           return "Email is Required";
@@ -127,56 +127,56 @@ const EnquiryForm = () => {
     }
   };
 
-    return(
-        <div className="container">
-                <div className="card">
-                    <div className="card-header text-center">
-                        <h3>Enquiry Form for Course - {searchParams.get('courseName')}</h3>
-                    </div>
-                    <div className="card-body">
-                        <div className="">
-                            <div className="form-group">
-                                <form className='col-md-10'>
-                                    <div className="form-group">
-                                        <label>Name</label>
-                                        <input type="text" className="form-control" 
-                                            name="name" value={inquiryObj.name} placeholder="Name"
-                                            onChange={handleInquiry} />
-                                        <span className="text-danger">{inquiryObj.errors.name}</span>
-                                    </div>
-                                    <div className="form-group">
-                                        <label>Phone Number</label>
-                                        <input type="text" className="form-control" 
-                                            name="phoneNumber" value={inquiryObj.phoneNumber} 
-                                            placeholder="Phone Number"
-                                            onChange={handleInquiry} />
-                                        <span className="text-danger">{inquiryObj.errors.phoneNumber}</span>
-                                    </div>
-                                    <div className="form-group">
-                                        <label>Email</label>
-                                        <input type="email" className="form-control" 
-                                            name="email" value={inquiryObj.email} 
-                                            placeholder="Email"
-                                            onChange={handleInquiry} />
-                                        <span className="text-danger">{inquiryObj.errors.email}</span>
-                                    </div>
-                                    <div className="form-group">
-                                        <label>Leave Your Message</label>
-                                        <textarea  className="form-control" 
-                                            name="enquiryMessage" value={inquiryObj.enquiryMessage}
-                                             placeholder="Leave Your Message"
-                                            onChange={handleInquiry} />
-                                    </div>
-                                    <button type="submit" className="btn btn-success"
-                                        onClick={submitForm}>Submit</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+  return (
+    <div className="container">
+      <div className="card">
+        <div className="card-header text-center">
+          <h3>Enquiry Form for Course - {searchParams.get('courseName')}</h3>
         </div>
-            
-    );
+        <div className="card-body">
+          <div className="">
+            <div className="form-group">
+              <form className='col-md-10'>
+                <div className="form-group">
+                  <label>Name</label>
+                  <input type="text" className="form-control"
+                    name="name" value={inquiryObj.name} placeholder="Name"
+                    onChange={handleInquiry} />
+                  <span className="text-danger">{inquiryObj.errors.name}</span>
+                </div>
+                <div className="form-group">
+                  <label>Phone Number</label>
+                  <input type="text" className="form-control"
+                    name="phoneNumber" value={inquiryObj.phoneNumber}
+                    placeholder="Phone Number"
+                    onChange={handleInquiry} />
+                  <span className="text-danger">{inquiryObj.errors.phoneNumber}</span>
+                </div>
+                <div className="form-group">
+                  <label>Email</label>
+                  <input type="email" className="form-control"
+                    name="email" value={inquiryObj.email}
+                    placeholder="Email"
+                    onChange={handleInquiry} />
+                  <span className="text-danger">{inquiryObj.errors.email}</span>
+                </div>
+                <div className="form-group">
+                  <label>Leave Your Message</label>
+                  <textarea className="form-control"
+                    name="enquiryMessage" value={inquiryObj.enquiryMessage}
+                    placeholder="Leave Your Message"
+                    onChange={handleInquiry} />
+                </div>
+                <button type="submit" className="btn btn-success"
+                  onClick={submitForm}>Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  );
 }
 
 export default EnquiryForm;
