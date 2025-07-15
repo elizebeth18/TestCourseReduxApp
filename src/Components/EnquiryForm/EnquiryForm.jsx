@@ -75,7 +75,20 @@ const EnquiryForm = () => {
       navigate("/viewEnquires", { replace: true });
 
     } else {
-      return;
+      let newErrors = {};
+      for(let key in inquiryObj){
+        if(key !== 'errors'){
+          newErrors[key] = validate(key, inquiryObj[key])
+        }
+      }
+
+      setInquiryObj(prevState => ({
+        ...prevState,
+        errors:{
+          ...prevState.errors,
+          ...newErrors
+        }
+      }))
     }
   }
 
