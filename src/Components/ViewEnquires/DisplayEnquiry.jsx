@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 const DisplayEnquiry = (props) => {
 
     const navigate = useNavigate();
-    
+    console.log('Props in DisplayEnquiry:', props.listOfEnquiry);
     const displayEnquiries = (enquiryList) => {
         if(enquiryList) {   
             return enquiryList.map((item) => {

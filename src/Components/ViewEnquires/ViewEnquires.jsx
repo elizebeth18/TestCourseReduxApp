@@ -10,15 +10,16 @@ const ViewEnquires = () => {
     const enquiryList = useSelector((state) => state.viewEnquires.enquiresList);
     const dispatch = useDispatch();
 
-    console.log(enquiryList)
-
+    console.log('Redux enquiryList:', enquiryList);
+    
     useEffect(() => {
         dispatch(fetchEnquiresList());
     }, [dispatch]);
 
     useEffect(() => {
-        if (enquiryList)
-            setListOfEnquires(enquiryList)
+        if (enquiryList?.length > 0) {
+            setListOfEnquires(enquiryList);
+        }
     }, [enquiryList]);
 
     return (
@@ -30,7 +31,7 @@ const ViewEnquires = () => {
                     </center>
                 </div>
                 <div className="panel-body">
-                    <DisplayEnquiry listOfEnquiry={enquiryList} />
+                    <DisplayEnquiry listOfEnquiry={listOfEnquires} />
                 </div>
             </div>
         </div>

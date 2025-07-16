@@ -9,6 +9,7 @@ const initialState = {
 
 export const fetchEnquiresList = createAsyncThunk('viewEnquiresList/get', async() => {
      const response = await axios.get('http://localhost:9112/enquiry')
+     console.log("iside thunk",response.data);
      return response.data;
 })
 
